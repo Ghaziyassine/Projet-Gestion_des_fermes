@@ -45,7 +45,7 @@ export const FermeDeleteDialog = () => {
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
       <ModalBody id="gestionDesFermesApp.ferme.delete.question">
-        <Translate contentKey="appApp.ferme.delete.question" interpolate={{ id: fermeEntity.fermeLibelle }}>
+        <Translate contentKey="gestionDesFermesApp.ferme.delete.question" interpolate={{ id: fermeEntity.fermeLibelle }}>
           Are you sure you want to delete this Ferme?
         </Translate>
       </ModalBody>
