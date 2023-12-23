@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20231223122801"
+  },
+  "applications": "*",
+  "entityTableName": "type_plante",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "humiditeMax",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "humiditeMin",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "temperature",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "TypePlante",
+  "relationships": [
+    {
+      "otherEntityName": "plante",
+      "otherEntityRelationshipName": "nom",
+      "relationshipName": "plante",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
