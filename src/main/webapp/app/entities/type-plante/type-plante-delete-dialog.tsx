@@ -45,7 +45,7 @@ export const TypePlanteDeleteDialog = () => {
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
       <ModalBody id="gestionDesFermesApp.typePlante.delete.question">
-        <Translate contentKey="gestionDesFermesApp.typePlante.delete.question" interpolate={{ id: typePlanteEntity.id }}>
+        <Translate contentKey="gestionDesFermesApp.typePlante.delete.question" interpolate={{ id: typePlanteEntity.nom }}>
           Are you sure you want to delete this TypePlante?
         </Translate>
       </ModalBody>

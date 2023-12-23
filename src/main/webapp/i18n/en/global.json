@@ -1,18 +1,18 @@
 {
   "global": {
-    "title": "GestionDesFermes",
+    "title": "Farms Management",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
       "home": "Home",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entities",
+        "main": "Farm management",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "ferme": "Ferme",
-        "parcelle": "Parcelle",
-        "plante": "Plante",
-        "typePlante": "Type Plante",
-        "plantage": "Plantage"
+        "ferme": "Farm",
+        "parcelle": "Plot",
+        "plante": "Plant",
+        "typePlante": "Plant Type",
+        "plantage": "Planting"
       },
       "account": {
         "main": "Account",

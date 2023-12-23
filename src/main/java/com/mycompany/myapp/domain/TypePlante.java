@@ -7,12 +7,14 @@ import java.util.HashSet;
 import java.util.Set;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.security.access.annotation.Secured;
 
 /**
  * A TypePlante.
  */
 @Entity
 @Table(name = "type_plante")
+@Secured("ROLE_ADMIN")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class TypePlante implements Serializable {
@@ -139,7 +141,8 @@ public class TypePlante implements Serializable {
         return this;
     }
 
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+    // setters here
 
     @Override
     public boolean equals(Object o) {
@@ -154,7 +157,8 @@ public class TypePlante implements Serializable {
 
     @Override
     public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+        // see
+        // https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
         return getClass().hashCode();
     }
 
@@ -162,11 +166,11 @@ public class TypePlante implements Serializable {
     @Override
     public String toString() {
         return "TypePlante{" +
-            "id=" + getId() +
-            ", nom='" + getNom() + "'" +
-            ", humiditeMax=" + getHumiditeMax() +
-            ", humiditeMin=" + getHumiditeMin() +
-            ", temperature=" + getTemperature() +
-            "}";
+                "id=" + getId() +
+                ", nom='" + getNom() + "'" +
+                ", humiditeMax=" + getHumiditeMax() +
+                ", humiditeMin=" + getHumiditeMin() +
+                ", temperature=" + getTemperature() +
+                "}";
     }
 }

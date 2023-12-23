@@ -87,8 +87,8 @@ export const PlantageUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="gestionDesFermesApp.plantage.home.createOrEditLabel" data-cy="PlantageCreateUpdateHeading">
-            <Translate contentKey="gestionDesFermesApp.plantage.home.createOrEditLabel">Create or edit a Plantage</Translate>
+          <h2 id="appApp.plantage.home.createOrEditLabel" data-cy="PlantageCreateUpdateHeading">
+            <Translate contentKey="appApp.plantage.home.createOrEditLabel">Create or edit a Plantage</Translate>
           </h2>
         </Col>
       </Row>
@@ -108,32 +108,20 @@ export const PlantageUpdate = () => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField
-                label={translate('gestionDesFermesApp.plantage.date')}
-                id="plantage-date"
-                name="date"
-                data-cy="date"
-                type="date"
-              />
-              <ValidatedField
-                label={translate('gestionDesFermesApp.plantage.nombre')}
-                id="plantage-nombre"
-                name="nombre"
-                data-cy="nombre"
-                type="text"
-              />
+              <ValidatedField label={translate('appApp.plantage.date')} id="plantage-date" name="date" data-cy="date" type="date" />
+              <ValidatedField label={translate('appApp.plantage.nombre')} id="plantage-nombre" name="nombre" data-cy="nombre" type="text" />
               <ValidatedField
                 id="plantage-planteLibelle"
                 name="planteLibelle"
                 data-cy="planteLibelle"
-                label={translate('gestionDesFermesApp.plantage.planteLibelle')}
+                label={translate('appApp.plantage.planteLibelle')}
                 type="select"
               >
                 <option value="" key="0" />
                 {plantes
                   ? plantes.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.planteLibelle}
                       </option>
                     ))
                   : null}
@@ -142,14 +130,14 @@ export const PlantageUpdate = () => {
                 id="plantage-parcelleLibelle"
                 name="parcelleLibelle"
                 data-cy="parcelleLibelle"
-                label={translate('gestionDesFermesApp.plantage.parcelleLibelle')}
+                label={translate('appApp.plantage.parcelleLibelle')}
                 type="select"
               >
                 <option value="" key="0" />
                 {parcelles
                   ? parcelles.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.parcelleLibelle}
                       </option>
                     ))
                   : null}

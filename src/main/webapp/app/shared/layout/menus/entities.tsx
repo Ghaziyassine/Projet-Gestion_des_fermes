@@ -1,9 +1,9 @@
 import React from 'react';
 import { translate } from 'react-jhipster';
 import { NavDropdown } from './menu-components';
-import EntitiesMenuItems from 'app/entities/menu';
+import { EntitiesMenu, EntitiesMenuUser } from 'app/entities/menu';
 
-export const EntitiesMenu = () => (
+export const EntitiesMenuAdmin = () => (
   <NavDropdown
     icon="th-list"
     name={translate('global.menu.entities.main')}
@@ -11,6 +11,17 @@ export const EntitiesMenu = () => (
     data-cy="entity"
     style={{ maxHeight: '80vh', overflow: 'auto' }}
   >
-    <EntitiesMenuItems />
+    <EntitiesMenu />
+  </NavDropdown>
+);
+export const EntitiesMenuU = () => (
+  <NavDropdown
+    icon="th-list"
+    name={translate('global.menu.entities.main')}
+    id="entity-menu"
+    data-cy="entity"
+    style={{ maxHeight: '80vh', overflow: 'auto' }}
+  >
+    <EntitiesMenuUser />
   </NavDropdown>
 );

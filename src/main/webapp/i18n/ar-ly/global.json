@@ -1,18 +1,18 @@
 {
   "global": {
-    "title": "GestionDesFermes",
+    "title": "إدارةالمزرعة",
     "browsehappy": "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
     "menu": {
       "home": "الصفحة الرئيسية",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "الكيانات",
+        "main": "إدارة المزرعة",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "ferme": "Ferme",
-        "parcelle": "Parcelle",
-        "plante": "Plante",
-        "typePlante": "Type Plante",
-        "plantage": "Plantage"
+        "ferme": "مزرعة",
+        "parcelle": "قطعة أرض",
+        "plante": "نبتة",
+        "typePlante": "نوع النبتة",
+        "plantage": "زراعة"
       },
       "account": {
         "main": "الحساب",

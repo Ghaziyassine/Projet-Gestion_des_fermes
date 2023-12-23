@@ -124,7 +124,7 @@ export const ParcelleUpdate = () => {
                 {fermes
                   ? fermes.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.fermeLibelle}
                       </option>
                     ))
                   : null}
