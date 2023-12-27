@@ -101,7 +101,7 @@ export const Plante = () => {
                   <FontAwesomeIcon icon={getSortIconByFieldName('photo')} />
                 </th>
                 <th>
-                  <Translate contentKey="gestionDesFermesApp.plante.nom">Nom</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="gestionDesFermesApp.plante.nom">Type de plante</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>

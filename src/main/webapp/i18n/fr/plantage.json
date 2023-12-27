@@ -20,8 +20,8 @@
       "id": "ID",
       "date": "Date",
       "nombre": "Nombre",
-      "planteLibelle": "Plante Libelle",
-      "parcelleLibelle": "Parcelle Libelle"
+      "planteLibelle": "Plante ",
+      "parcelleLibelle": "Parcelle "
     }
   }
 }

@@ -89,7 +89,7 @@ export const Ferme = () => {
                   <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
                 <th className="hand" onClick={sort('fermeLibelle')}>
-                  <Translate contentKey="gestionDesFermesApp.ferme.fermeLibelle">Ferme Libelle</Translate>{' '}
+                  <Translate contentKey="gestionDesFermesApp.ferme.fermeLibelle">Ferme </Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('fermeLibelle')} />
                 </th>
                 <th className="hand" onClick={sort('photo')}>

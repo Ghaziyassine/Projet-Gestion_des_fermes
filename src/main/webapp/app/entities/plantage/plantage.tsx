@@ -98,12 +98,10 @@ export const Plantage = () => {
                   <FontAwesomeIcon icon={getSortIconByFieldName('nombre')} />
                 </th>
                 <th>
-                  <Translate contentKey="gestionDesFermesApp.plantage.planteLibelle">Plante Libelle</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="gestionDesFermesApp.plantage.planteLibelle">Plante </Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="gestionDesFermesApp.plantage.parcelleLibelle">Parcelle Libelle</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="gestionDesFermesApp.plantage.parcelleLibelle">Parcelle </Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
