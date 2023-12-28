@@ -2,26 +2,26 @@
   "gestionDesFermesApp": {
     "plantage": {
       "home": {
-        "title": "Plantages",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Plantage",
-        "createOrEditLabel": "Create or edit a Plantage",
-        "notFound": "No Plantages found"
+        "title": "الزراعات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء زراعة جديدة",
+        "createOrEditLabel": "إنشاء أو تحرير زراعة",
+        "notFound": "لم يتم العثور على زرعات"
       },
-      "created": "A new Plantage is created with identifier {{ param }}",
-      "updated": "A Plantage is updated with identifier {{ param }}",
-      "deleted": "A Plantage is deleted with identifier {{ param }}",
+      "created": "تم إنشاء زراعة جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث زراعة بالمعرف {{ param }}",
+      "deleted": "تم حذف زراعة بالمعرف {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Plantage {{ id }}?"
+        "question": "هل أنت متأكد أنك تريد حذف الزراعة {{ id }}؟"
       },
       "detail": {
-        "title": "Plantage"
+        "title": "الزراعة"
       },
-      "id": "ID",
-      "date": "Date",
-      "nombre": "Nombre",
-      "planteLibelle": "Plante ",
-      "parcelleLibelle": "Parcelle "
+      "id": "المعرف",
+      "date": "التاريخ",
+      "nombre": "العدد",
+      "planteLibelle": "اسم النبتة",
+      "parcelleLibelle": "اسم القطعة الزراعية"
     }
   }
 }

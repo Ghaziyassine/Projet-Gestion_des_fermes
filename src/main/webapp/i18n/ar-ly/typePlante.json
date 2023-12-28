@@ -2,27 +2,27 @@
   "gestionDesFermesApp": {
     "typePlante": {
       "home": {
-        "title": "Type Plantes",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Type Plante",
-        "createOrEditLabel": "Create or edit a Type Plante",
-        "notFound": "No Type Plantes found"
+        "title": "أنواع النباتات",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء نوع جديد من النبات",
+        "createOrEditLabel": "إنشاء أو تحرير نوع من النبات",
+        "notFound": "لم يتم العثور على أنواع النباتات"
       },
-      "created": "A new Type Plante is created with identifier {{ param }}",
-      "updated": "A Type Plante is updated with identifier {{ param }}",
-      "deleted": "A Type Plante is deleted with identifier {{ param }}",
+      "created": "تم إنشاء نوع جديد من النبات بالمعرف {{ param }}",
+      "updated": "تم تحديث نوع من النبات بالمعرف {{ param }}",
+      "deleted": "تم حذف نوع من النبات بالمعرف {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Type Plante {{ id }}?"
+        "question": "هل أنت متأكد أنك تريد حذف نوع من النبات بالمعرف {{ id }}؟"
       },
       "detail": {
-        "title": "Type Plante"
+        "title": "نوع النبات"
       },
-      "id": "ID",
-      "nom": "Nom",
-      "humiditeMax": "Humidite Max",
-      "humiditeMin": "Humidite Min",
-      "temperature": "Temperature",
-      "plante": "Plante"
+      "id": "المعرف",
+      "nom": "الاسم",
+      "humiditeMax": "الرطوبة القصوى",
+      "humiditeMin": "الرطوبة الدنيا",
+      "temperature": "درجة الحرارة",
+      "plante": "النبات"
     }
   }
 }

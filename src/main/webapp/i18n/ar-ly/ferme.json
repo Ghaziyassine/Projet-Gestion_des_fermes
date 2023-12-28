@@ -2,25 +2,25 @@
   "gestionDesFermesApp": {
     "ferme": {
       "home": {
-        "title": "Fermes",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Ferme",
-        "createOrEditLabel": "Create or edit a Ferme",
-        "notFound": "No Fermes found"
+        "title": "المزارع",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء مزرعة جديدة",
+        "createOrEditLabel": "إنشاء أو تحرير مزرعة",
+        "notFound": "لم يتم العثور على مزارع"
       },
-      "created": "A new Ferme is created with identifier {{ param }}",
-      "updated": "A Ferme is updated with identifier {{ param }}",
-      "deleted": "A Ferme is deleted with identifier {{ param }}",
+      "created": "تم إنشاء مزرعة جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث مزرعة بالمعرف {{ param }}",
+      "deleted": "تم حذف مزرعة بالمعرف {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Ferme {{ id }}?"
+        "question": "هل أنت متأكد أنك تريد حذف مزرعة {{ id }}؟"
       },
       "detail": {
-        "title": "Ferme"
+        "title": "المزرعة"
       },
-      "id": "ID",
-      "fermeLibelle": "Ferme Libelle",
-      "photo": "Photo",
-      "parcelle": "Parcelle"
+      "id": "المعرف",
+      "fermeLibelle": "اسم المزرعة",
+      "photo": "صورة",
+      "parcelle": "قطعة الأرض"
     }
   }
 }
