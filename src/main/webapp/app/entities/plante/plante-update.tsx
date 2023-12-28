@@ -124,7 +124,7 @@ export const PlanteUpdate = () => {
                 <option value="" key="0" />
                 {typePlantes
                   ? typePlantes.map(otherEntity => (
-                      <option value={otherEntity.nom} key={otherEntity.nom}>
+                      <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.nom}
                       </option>
                     ))
