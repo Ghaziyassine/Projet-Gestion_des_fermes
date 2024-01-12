@@ -168,9 +168,9 @@ public class PlanteResource {
         return ResponseUtil.wrapOrNotFound(plante);
     }
 
-    @GetMapping("/type/{id}")
-    public List<Plante> getPlanteType(@PathVariable("id") Long id) {
-        return planteRepository.findTypePlanteNomByEtudiantId(id);
+    @GetMapping("/byTypePlante/{id}")
+    public List<Plante> getPlantesByPlanteTypeId(@PathVariable("id") Long id) {
+        return planteRepository.findPlantesByPlanteTypeId(id);
     }
 
     /**
