@@ -168,6 +168,11 @@ public class PlanteResource {
         return ResponseUtil.wrapOrNotFound(plante);
     }
 
+    @GetMapping("/type/{id}")
+    public List<Plante> getPlanteType(@PathVariable("id") Long id) {
+        return planteRepository.findTypePlanteNomByEtudiantId(id);
+    }
+
     /**
      * {@code DELETE  /plantes/:id} : delete the "id" plante.
      *
