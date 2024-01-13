@@ -97,7 +97,6 @@ export const Plante = () => {
     return (
       plante.planteLibelle.toLowerCase().includes(searchLower) ||
       plante.racine.toLowerCase().includes(searchLower) ||
-      // Ajoutez d'autres champs si nécessaire
       planteTypeNoms[plante.id].toLowerCase().includes(searchLower)
     );
   });
