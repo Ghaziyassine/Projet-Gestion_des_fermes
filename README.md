@@ -1,4 +1,119 @@
-# Projet-Gestion_des_fermes
+# Gestion des Fermes
+
+Ce projet est une application web développée avec JHipster, React, Spring Boot et MySQL. Il offre une plateforme complète pour la gestion des fermes, permettant aux utilisateurs de s'inscrire, de visualiser leur profil, de gérer les fermes, les parcelles, les plantes, de planter des plantes, de consulter l'historique des plantations, et plus encore. Les administrateurs ont également la possibilité de gérer les utilisateurs, les types de plantes et d'accéder aux statistiques.
+
+## Modèle de Données
+
+### Ferme
+
+- **fermeLibelle:** Libellé de la ferme.
+- **photo:** Image de la ferme (au format Blob).
+
+### Parcelle
+
+- **parcelleLibelle:** Libellé de la parcelle.
+- **photo:** Image de la parcelle (au format Blob).
+
+### Plante
+
+- **planteLibelle:** Libellé de la plante.
+- **racine:** Type de racine de la plante.
+- **photo:** Image de la plante (au format Blob).
+
+### TypePlante
+
+- **nom:** Nom du type de plante.
+- **humiditeMax:** Humidité maximale requise.
+- **humiditeMin:** Humidité minimale requise.
+- **temperature:** Température optimale requise.
+
+### Plantage
+
+- **date:** Date du plantage.
+- **nombre:** Nombre de plantes plantées.
+
+## Fonctionnalités
+
+- **Inscription et Profil**
+  - Permet aux utilisateurs de s'inscrire et de gérer leur profil.
+
+- **Gestion des Fermes**
+  - Ajouter, modifier et supprimer des fermes.
+
+- **Gestion des Parcelles**
+  - Ajouter, modifier et supprimer des parcelles.
+
+- **Gestion des Plantes**
+  - Ajouter, modifier et supprimer des plantes.
+  - Planter des plantes dans les parcelles.
+
+- **Gestion des Types de Plantes**
+  - Ajouter, modifier et supprimer des types de plantes.
+
+- **Historique de Plantage**
+  - Consulter l'historique des plantations.
+
+- **Administration**
+  - Gestion des utilisateurs.
+  - Accès aux statistiques.
+
+## Prérequis
+- Maven
+- Node.js
+- Java
+- MySQL
+
+
+## Utilisation
+
+1. Lancez le serveur back-end: `./mvnw`
+2. Lancez l'application front-end: `npm start`
+3. Accédez à l'application dans votre navigateur: `http://localhost:3000`
+
+## Installation
+
+### Utilisation de Docker
+
+1. Assurez-vous d'avoir Docker installé sur votre machine.
+
+2. Clonez ce dépôt: `git clone https://github.com/votre-utilisateur/votre-projet.git`
+
+3. Accédez au répertoire du projet: `cd votre-projet`
+
+4. Utilisez Docker Compose pour construire et démarrer les conteneurs:
+
+    ```bash
+    docker-compose up
+    ```
+
+    Ceci lancera les conteneurs nécessaires, y compris la base de données MySQL, le serveur back-end Spring Boot, et l'application front-end React.
+
+5. Lorsque les conteneurs sont en cours d'exécution, accédez à l'application dans votre navigateur: `http://localhost:3000`
+
+### Installation Manuelle
+
+Si vous préférez ne pas utiliser Docker, vous pouvez également installer manuellement les dépendances front-end et back-end comme indiqué précédemment.
+
+1. Clonez ce dépôt: `git clone https://github.com/votre-utilisateur/votre-projet.git`
+
+2. Accédez au répertoire du projet: `cd votre-projet`
+
+3. Installez les dépendances front-end: `npm install`
+
+4. Installez les dépendances back-end: `./mvnw`
+
+5. Configurez la base de données dans `application.yml` (ou `application.properties`) avec vos informations de connexion MySQL.
+
+6. Lancez le serveur back-end: `./mvnw`
+
+7. Lancez l'application front-end: `npm start`
+
+8. Accédez à l'application dans votre navigateur: `http://localhost:3000`
+
+
+
+
+
 **Diagramme de cas d’utilisation**
 ![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8278821c-5cb4-4932-8adc-35767ec71d76)
 
@@ -6,7 +121,15 @@
 ![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/a0c190db-7ede-45e0-8988-fc23e1e5e70f)
 
 
+
+
+
+
+
+
 **Demonstration**
 
 https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8b5f471d-2a84-42d4-b420-7fdbe06cd76b
 
+
+https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/42c3376d-e2c9-4a82-9460-7040fb56c33e
