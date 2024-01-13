@@ -1,6 +1,6 @@
 services:
   gestiondesfermes:
-    image: gestiondesfermes
+    image: maskedfezz/lastfarm:gestiondesfermes-latest
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
@@ -22,7 +22,7 @@ services:
       gestiondesfermes-mysql:
         condition: service_healthy
   gestiondesfermes-mysql:
-    image: mysql:8.2.0
+    image: maskedfezz/lastfarm:mysql-8.2.0
     volumes:
       - ./config/mysql:/etc/mysql/conf.d
     environment:
