@@ -12,22 +12,47 @@ import { getEntities } from './plante.reducer';
 
 export const Plante = () => {
   const dispatch = useAppDispatch();
-
+  const [planteTypeNoms, setPlanteTypeNoms] = useState({});
   const pageLocation = useLocation();
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [sortState, setSortState] = useState(overrideSortStateWithQueryParams(getSortState(pageLocation, 'id'), pageLocation.search));
 
   const planteList = useAppSelector(state => state.plante.entities);
   const loading = useAppSelector(state => state.plante.loading);
 
+  // const getAllEntities = () => {
+  //   dispatch(
+  //     getEntities({
+  //       sort: `${sortState.sort},${sortState.order}`,
+  //     }),
+  //   );
+  // };
+
   const getAllEntities = () => {
     dispatch(
       getEntities({
         sort: `${sortState.sort},${sortState.order}`,
+        search: searchTerm, // Ajoutez le terme de recherche
       }),
     );
   };
+
+  useEffect(() => {
+    const fetchPlantTypeNames = async () => {
+      await Promise.all(
+        planteList.map(async plante => {
+          const planteTypeNomResponse = await fetch(`/api/plantes/${plante.id}/type-plante-nom`);
+
+          const planteTypeNom = await planteTypeNomResponse.text();
+          setPlanteTypeNoms(prevState => ({ ...prevState, [plante.id]: planteTypeNom }));
+        }),
+      );
+    };
+
+    fetchPlantTypeNames();
+  }, [planteList]);
 
   const sortEntities = () => {
     getAllEntities();
@@ -52,6 +77,10 @@ export const Plante = () => {
   const handleSyncList = () => {
     sortEntities();
   };
+  const handleSearchChange = e => {
+    setSearchTerm(e.target.value);
+    console.log('Search Term:', e.target.value);
+  };
 
   const getSortIconByFieldName = (fieldName: string) => {
     const sortFieldName = sortState.sort;
@@ -62,11 +91,31 @@ export const Plante = () => {
       return order === ASC ? faSortUp : faSortDown;
     }
   };
+  const filteredPlanteList = planteList.filter(plante => {
+    const searchLower = searchTerm.toLowerCase();
 
+    return (
+      plante.planteLibelle.toLowerCase().includes(searchLower) ||
+      plante.racine.toLowerCase().includes(searchLower) ||
+      // Ajoutez d'autres champs si nécessaire
+      planteTypeNoms[plante.id].toLowerCase().includes(searchLower)
+    );
+  });
   return (
     <div>
       <h2 id="plante-heading" data-cy="PlanteHeading">
         <Translate contentKey="gestionDesFermesApp.plante.home.title">Plantes</Translate>
+        <div className="d-flex justify-content-end mb-2">
+          <div className="me-2">
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="form-control form-control-sm"
+            />
+          </div>
+        </div>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
@@ -80,7 +129,7 @@ export const Plante = () => {
         </div>
       </h2>
       <div className="table-responsive">
-        {planteList && planteList.length > 0 ? (
+        {filteredPlanteList && filteredPlanteList.length > 0 ? (
           <Table responsive>
             <thead>
               <tr>
@@ -107,7 +156,7 @@ export const Plante = () => {
               </tr>
             </thead>
             <tbody>
-              {planteList.map((plante, i) => (
+              {filteredPlanteList.map((plante, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`/plante/${plante.id}`} color="link" size="sm">
@@ -131,7 +180,7 @@ export const Plante = () => {
                       </div>
                     ) : null}
                   </td>
-                  <td>{plante.nom ? <Link to={`/type-plante/${plante.nom.id}`}>{plante.nom.id}</Link> : ''}</td>
+                  <td>{planteTypeNoms[plante.id]}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/plante/${plante.id}`} color="info" size="sm" data-cy="entityDetailsButton">

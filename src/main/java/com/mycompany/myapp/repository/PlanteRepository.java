@@ -14,4 +14,7 @@ import org.springframework.stereotype.Repository;
 public interface PlanteRepository extends JpaRepository<Plante, Long> {
     @Query("SELECT p FROM Plante p WHERE p.nom.id = :planteId")
     List<Plante> findPlantesByPlanteTypeId(@Param("planteId") Long planteId);
+
+    @Query("SELECT p.nom.nom FROM Plante p WHERE p.id = :planteId")
+    String findNomTypePlanteParPlanteId(@Param("planteId") Long planteId);
 }

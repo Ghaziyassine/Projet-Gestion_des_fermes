@@ -188,4 +188,12 @@ public class PlanteResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    @GetMapping("/{id}/type-plante-nom")
+    public ResponseEntity<String> getTypePlanteNomByPlanteId(@PathVariable Long id) {
+        log.debug("REST request to get Type Plante Nom for Plante: {}", id);
+        String typePlanteNom = planteRepository.findNomTypePlanteParPlanteId(id);
+
+        return ResponseEntity.ok(typePlanteNom);
+    }
 }
