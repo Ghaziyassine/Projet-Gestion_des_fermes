@@ -68,7 +68,7 @@ Ce projet est une application web développée avec JHipster, React, Spring Boot
 
 1. Lancez le serveur back-end: `./mvnw`
 2. Lancez l'application front-end: `npm start`
-3. Accédez à l'application dans votre navigateur: `http://localhost:3000`
+3. Accédez à l'application dans votre navigateur: `http://localhost:9000`
 
 ## Installation
 
@@ -76,11 +76,19 @@ Ce projet est une application web développée avec JHipster, React, Spring Boot
 
 1. Assurez-vous d'avoir Docker installé sur votre machine.
 
-2. Clonez ce dépôt: `git clone https://github.com/votre-utilisateur/votre-projet.git`
+2. Clonez ce dépôt: 
 
-3. Accédez au répertoire du projet: `cd votre-projet`
+    ```bash
+    git clone https://github.com/Ghaziyassine/Projet-Gestion_des_ferme.git
+    ```
 
-4. Utilisez Docker Compose pour construire et démarrer les conteneurs:
+4. Accédez au répertoire du projet: 
+
+     ```bash
+    cd Projet-Gestion_des_ferme
+    ```
+
+5. Utilisez Docker Compose pour construire et démarrer les conteneurs:
 
     ```bash
     docker-compose up
@@ -88,27 +96,27 @@ Ce projet est une application web développée avec JHipster, React, Spring Boot
 
     Ceci lancera les conteneurs nécessaires, y compris la base de données MySQL, le serveur back-end Spring Boot, et l'application front-end React.
 
-5. Lorsque les conteneurs sont en cours d'exécution, accédez à l'application dans votre navigateur: `http://localhost:3000`
+6. Lorsque les conteneurs sont en cours d'exécution, accédez à l'application dans votre navigateur: `http://localhost:8080`
 
 ### Installation Manuelle
 
 Si vous préférez ne pas utiliser Docker, vous pouvez également installer manuellement les dépendances front-end et back-end comme indiqué précédemment.
 
-1. Clonez ce dépôt: `git clone https://github.com/votre-utilisateur/votre-projet.git`
+1. Clonez ce dépôt: `git clone  https://github.com/Ghaziyassine/Projet-Gestion_des_ferme.git`
 
-2. Accédez au répertoire du projet: `cd votre-projet`
+2. Accédez au répertoire du projet: `cd  Projet-Gestion_des_fermet`
 
 3. Installez les dépendances front-end: `npm install`
 
 4. Installez les dépendances back-end: `./mvnw`
 
-5. Configurez la base de données dans `application.yml` (ou `application.properties`) avec vos informations de connexion MySQL.
+5. Configurez la base de données dans `app.yml`  avec vos informations de connexion MySQL.
 
 6. Lancez le serveur back-end: `./mvnw`
 
 7. Lancez l'application front-end: `npm start`
 
-8. Accédez à l'application dans votre navigateur: `http://localhost:3000`
+8. Accédez à l'application dans votre navigateur: `http://localhost:9000` ou  `http://localhost:8080` 
 
 
 
