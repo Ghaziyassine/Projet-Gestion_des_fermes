@@ -32,6 +32,20 @@ Ce projet est une application web développée avec JHipster, React, Spring Boot
 - **date:** Date du plantage.
 - **nombre:** Nombre de plantes plantées.
 
+
+
+
+**Diagramme de cas d’utilisation**
+![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8278821c-5cb4-4932-8adc-35767ec71d76)
+
+**Diagramme de classe**
+![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/a0c190db-7ede-45e0-8988-fc23e1e5e70f)
+
+
+
+
+
+
 ## Fonctionnalités
 
 - **Inscription et Profil**
@@ -117,17 +131,6 @@ Si vous préférez ne pas utiliser Docker, vous pouvez également installer manu
 7. Lancez l'application front-end: `npm start`
 
 8. Accédez à l'application dans votre navigateur: `http://localhost:9000` ou  `http://localhost:8080` 
-
-
-
-
-
-**Diagramme de cas d’utilisation**
-![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8278821c-5cb4-4932-8adc-35767ec71d76)
-
-**Diagramme de classe**
-![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/a0c190db-7ede-45e0-8988-fc23e1e5e70f)
-
 
 
 
