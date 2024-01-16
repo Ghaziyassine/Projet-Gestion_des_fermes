@@ -133,12 +133,13 @@ Si vous préférez ne pas utiliser Docker, vous pouvez également installer manu
 8. Accédez à l'application dans votre navigateur: `http://localhost:9000` ou  `http://localhost:8080` 
 
 
+## Utilisateurs par default
 
 
+![image](https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/0f745263-7124-474d-8e94-c0df7e5ff7bb)
 
 
-
-**Demonstration**
+## Demonstration
 
 https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8b5f471d-2a84-42d4-b420-7fdbe06cd76b
 
