@@ -141,7 +141,23 @@ Si vous préférez ne pas utiliser Docker, vous pouvez également installer manu
 
 ## Demonstration
 
-https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/8b5f471d-2a84-42d4-b420-7fdbe06cd76b
+### Gestion par compte user
 
 
-https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/42c3376d-e2c9-4a82-9460-7040fb56c33e
+
+https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/9f63592d-d4f8-4cbe-ac20-13f49d925c4c
+
+
+### Gestion par compte admin
+
+
+https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/2cb3bdb6-a1db-4ecc-a2f3-f6ca4e682fb0
+
+### Filtrage
+
+
+
+https://github.com/Ghaziyassine/Projet-Gestion_des_fermes/assets/114885285/99c43ef9-3c1c-40f9-a48d-2c21df433275
+
+
+
