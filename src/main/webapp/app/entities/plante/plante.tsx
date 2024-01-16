@@ -179,7 +179,9 @@ export const Plante = () => {
                       </div>
                     ) : null}
                   </td>
-                  <td>{planteTypeNoms[plante.id]}</td>
+
+                  <td>{planteTypeNoms[plante.id] ? <Link to={`/type-plante/${plante.nom.id}`}>{planteTypeNoms[plante.id]}</Link> : ''}</td>
+
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/plante/${plante.id}`} color="info" size="sm" data-cy="entityDetailsButton">

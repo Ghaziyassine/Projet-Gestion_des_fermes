@@ -13,9 +13,12 @@ import { getEntities } from './plantage.reducer';
 
 export const Plantage = () => {
   const dispatch = useAppDispatch();
+  const [planteLibelles, setplanteLibelles] = useState({});
+  const [parcelleLibelles, setparcelleLibelles] = useState({});
 
   const pageLocation = useLocation();
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [sortState, setSortState] = useState(overrideSortStateWithQueryParams(getSortState(pageLocation, 'id'), pageLocation.search));
 
@@ -26,9 +29,27 @@ export const Plantage = () => {
     dispatch(
       getEntities({
         sort: `${sortState.sort},${sortState.order}`,
+        search: searchTerm, // Ajoutez le terme de recherche
       }),
     );
   };
+
+  useEffect(() => {
+    const fetchPlantTypeNames = async () => {
+      await Promise.all(
+        plantageList.map(async plantage => {
+          const planteLibellesResponse = await fetch(`/api/plantages/${plantage.id}/plante-libelle`);
+          const parcelleLibellesResponse = await fetch(`/api/plantages/${plantage.id}/parcelle-libelle`);
+          const parcelleLibelle = await parcelleLibellesResponse.text();
+          const planteLibelle = await planteLibellesResponse.text();
+          setplanteLibelles(prevState => ({ ...prevState, [plantage.id]: planteLibelle }));
+          setparcelleLibelles(prevState => ({ ...prevState, [plantage.id]: parcelleLibelle }));
+        }),
+      );
+    };
+
+    fetchPlantTypeNames();
+  }, [plantageList]);
 
   const sortEntities = () => {
     getAllEntities();
@@ -54,6 +75,11 @@ export const Plantage = () => {
     sortEntities();
   };
 
+  const handleSearchChange = e => {
+    setSearchTerm(e.target.value);
+    console.log('Search Term:', e.target.value);
+  };
+
   const getSortIconByFieldName = (fieldName: string) => {
     const sortFieldName = sortState.sort;
     const order = sortState.order;
@@ -63,11 +89,32 @@ export const Plantage = () => {
       return order === ASC ? faSortUp : faSortDown;
     }
   };
+  const filteredplantageList = plantageList.filter(plantage => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      (typeof plantage.nombre === 'string' && plantage.nombre.toLowerCase().includes(searchLower)) ||
+      (typeof planteLibelles[plantage.id] === 'string' && planteLibelles[plantage.id].toLowerCase().includes(searchLower)) ||
+      (typeof plantage.parcelleLibelle === 'string' && plantage.parcelleLibelle.toLowerCase().includes(searchLower))
+    );
+  });
 
   return (
     <div>
       <h2 id="plantage-heading" data-cy="PlantageHeading">
         <Translate contentKey="gestionDesFermesApp.plantage.home.title">Plantages</Translate>
+
+        <div className="d-flex justify-content-end mb-2">
+          <div className="me-2">
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
@@ -81,7 +128,7 @@ export const Plantage = () => {
         </div>
       </h2>
       <div className="table-responsive">
-        {plantageList && plantageList.length > 0 ? (
+        {filteredplantageList && filteredplantageList.length > 0 ? (
           <Table responsive>
             <thead>
               <tr>
@@ -107,7 +154,7 @@ export const Plantage = () => {
               </tr>
             </thead>
             <tbody>
-              {plantageList.map((plantage, i) => (
+              {filteredplantageList.map((plantage, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`/plantage/${plantage.id}`} color="link" size="sm">
@@ -117,15 +164,23 @@ export const Plantage = () => {
                   <td>{plantage.date ? <TextFormat type="date" value={plantage.date} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                   <td>{plantage.nombre}</td>
                   <td>
-                    {plantage.planteLibelle ? <Link to={`/plante/${plantage.planteLibelle.id}`}>{plantage.planteLibelle.id}</Link> : ''}
+                    <td>
+                      {planteLibelles[plantage.id] ? (
+                        <Link to={`/plante/${plantage.planteLibelle.id}`}>{planteLibelles[plantage.id]}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                   </td>
+
                   <td>
-                    {plantage.parcelleLibelle ? (
-                      <Link to={`/parcelle/${plantage.parcelleLibelle.id}`}>{plantage.parcelleLibelle.id}</Link>
+                    {parcelleLibelles[plantage.id] ? (
+                      <Link to={`/parcelle/${plantage.parcelleLibelle.id}`}>{parcelleLibelles[plantage.id]}</Link>
                     ) : (
                       ''
                     )}
                   </td>
+
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/plantage/${plantage.id}`} color="info" size="sm" data-cy="entityDetailsButton">

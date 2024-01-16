@@ -3,6 +3,7 @@
     "changelogDate": "20231223122501"
   },
   "applications": "*",
+  "changelogDate": "20231223122501",
   "entityTableName": "ferme",
   "fields": [
     {

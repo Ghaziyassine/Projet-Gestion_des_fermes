@@ -179,4 +179,18 @@ public class PlantageResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    @GetMapping("/{id}/plante-libelle")
+    public ResponseEntity<String> findFermeParParcelleId(@PathVariable Long id) {
+        log.debug("REST request to get FermeLibelle for Parcelle: {}", id);
+        String fermeLibelle = plantageRepository.findFermeParParcelleId(id);
+        return ResponseEntity.ok(fermeLibelle);
+    }
+
+    @GetMapping("/{id}/parcelle-libelle")
+    public ResponseEntity<String> findParcellePlantageId(@PathVariable Long id) {
+        log.debug("REST request to get FermeLibelle for Parcelle: {}", id);
+        String fermeLibelle = plantageRepository.findParcellePlantageId(id);
+        return ResponseEntity.ok(fermeLibelle);
+    }
 }

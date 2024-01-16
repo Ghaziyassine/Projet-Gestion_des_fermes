@@ -12,9 +12,11 @@ import { getEntities } from './parcelle.reducer';
 
 export const Parcelle = () => {
   const dispatch = useAppDispatch();
+  const [fermeLibelles, setfermeLibelles] = useState({});
 
   const pageLocation = useLocation();
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [sortState, setSortState] = useState(overrideSortStateWithQueryParams(getSortState(pageLocation, 'id'), pageLocation.search));
 
@@ -25,9 +27,25 @@ export const Parcelle = () => {
     dispatch(
       getEntities({
         sort: `${sortState.sort},${sortState.order}`,
+        search: searchTerm, // Ajoutez le terme de recherche
       }),
     );
   };
+
+  useEffect(() => {
+    const fetchPlantTypeNames = async () => {
+      await Promise.all(
+        parcelleList.map(async parcelle => {
+          const fermeLibelleResponse = await fetch(`/api/parcelles/${parcelle.id}//ferme-libelle`);
+
+          const planteTypeNom = await fermeLibelleResponse.text();
+          setfermeLibelles(prevState => ({ ...prevState, [parcelle.id]: planteTypeNom }));
+        }),
+      );
+    };
+
+    fetchPlantTypeNames();
+  }, [parcelleList]);
 
   const sortEntities = () => {
     getAllEntities();
@@ -53,6 +71,11 @@ export const Parcelle = () => {
     sortEntities();
   };
 
+  const handleSearchChange = e => {
+    setSearchTerm(e.target.value);
+    console.log('Search Term:', e.target.value);
+  };
+
   const getSortIconByFieldName = (fieldName: string) => {
     const sortFieldName = sortState.sort;
     const order = sortState.order;
@@ -63,10 +86,32 @@ export const Parcelle = () => {
     }
   };
 
+  const filteredParcelleList = parcelleList.filter(parcelle => {
+    const searchLower = searchTerm.toLowerCase();
+
+    return (
+      parcelle.parcelleLibelle.toLowerCase().includes(searchLower) ||
+      // Ajoutez d'autres champs si nécessaire
+      fermeLibelles[parcelle.id].toLowerCase().includes(searchLower)
+    );
+  });
+
   return (
     <div>
       <h2 id="parcelle-heading" data-cy="ParcelleHeading">
         <Translate contentKey="gestionDesFermesApp.parcelle.home.title">Parcelles</Translate>
+
+        <div className="d-flex justify-content-end mb-2">
+          <div className="me-2">
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              className="form-control form-control-sm"
+            />
+          </div>
+        </div>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
@@ -80,7 +125,7 @@ export const Parcelle = () => {
         </div>
       </h2>
       <div className="table-responsive">
-        {parcelleList && parcelleList.length > 0 ? (
+        {filteredParcelleList && filteredParcelleList.length > 0 ? (
           <Table responsive>
             <thead>
               <tr>
@@ -104,7 +149,7 @@ export const Parcelle = () => {
               </tr>
             </thead>
             <tbody>
-              {parcelleList.map((parcelle, i) => (
+              {filteredParcelleList.map((parcelle, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
                   <td>
                     <Button tag={Link} to={`/parcelle/${parcelle.id}`} color="link" size="sm">
@@ -112,6 +157,7 @@ export const Parcelle = () => {
                     </Button>
                   </td>
                   <td>{parcelle.parcelleLibelle}</td>
+
                   <td>
                     {parcelle.photo ? (
                       <div>
@@ -127,7 +173,16 @@ export const Parcelle = () => {
                       </div>
                     ) : null}
                   </td>
-                  <td>{parcelle.fermeLibelle ? <Link to={`/ferme/${parcelle.fermeLibelle.id}`}>{parcelle.fermeLibelle.id}</Link> : ''}</td>
+                  <td>
+                    <td>
+                      -{parcelle.fermeLibelle ? <Link to={`/ferme/${parcelle.fermeLibelle.id}`}>{parcelle.fermeLibelle.id}</Link> : ''}-
+                      {fermeLibelles[parcelle.id] ? (
+                        <Link to={`/ferme/${parcelle.fermeLibelle.id}`}>{fermeLibelles[parcelle.id]}</Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
+                  </td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/parcelle/${parcelle.id}`} color="info" size="sm" data-cy="entityDetailsButton">

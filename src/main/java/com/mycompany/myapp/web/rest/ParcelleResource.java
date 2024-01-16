@@ -182,4 +182,11 @@ public class ParcelleResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    @GetMapping("/{id}/ferme-libelle")
+    public ResponseEntity<String> findFermeParParcelleId(@PathVariable Long id) {
+        log.debug("REST request to get FermeLibelle for Parcelle: {}", id);
+        String fermeLibelle = parcelleRepository.findFermeParParcelleId(id);
+        return ResponseEntity.ok(fermeLibelle);
+    }
 }

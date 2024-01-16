@@ -3,6 +3,7 @@
     "changelogDate": "20231223122601"
   },
   "applications": "*",
+  "changelogDate": "20231223122601",
   "entityTableName": "parcelle",
   "fields": [
     {

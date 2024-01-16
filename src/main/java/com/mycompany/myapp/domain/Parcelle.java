@@ -40,6 +40,7 @@ public class Parcelle implements Serializable {
     private Set<Plantage> plantages = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
+    //@Column(name = "ferme")
     @JsonIgnoreProperties(value = { "parcelles" }, allowSetters = true)
     private Ferme fermeLibelle;
 
